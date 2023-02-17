@@ -123,10 +123,6 @@ To get started, we load the package.
 library(Biostrings)
 ```
 
-```{.error}
-Error: package 'S4Vectors' required by 'Biostrings' could not be found
-```
-
 With the package loaded and attached to the session, we have access to the
 package functions.
 Those include functions that let us create new objects of the classes defined
@@ -141,8 +137,9 @@ printed in the console.
 DNAString("ATCG")
 ```
 
-```{.error}
-Error in DNAString("ATCG"): could not find function "DNAString"
+```{.output}
+4-letter DNAString object
+seq: ATCG
 ```
 
 Notably, DNA sequences may only contain the symbols `A`, `T`, `C`, and `G`, to
@@ -159,7 +156,7 @@ DNAString("ATCGZ")
 ```
 
 ```{.error}
-Error in DNAString("ATCGZ"): could not find function "DNAString"
+Error in .Call2("new_XString_from_CHARACTER", class(x0), string, start, : key 90 (char 'Z') not in lookup table
 ```
 
 Specifically, the [IUPAC Extended Genetic Alphabet][iupac-alphabet] defines
@@ -173,8 +170,11 @@ nucleotide ambiguity codes to their meaning.
 IUPAC_CODE_MAP
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'IUPAC_CODE_MAP' not found
+```{.output}
+     A      C      G      T      M      R      W      S      Y      K      V 
+   "A"    "C"    "G"    "T"   "AC"   "AG"   "AT"   "CG"   "CT"   "GT"  "ACG" 
+     H      D      B      N 
+ "ACT"  "AGT"  "CGT" "ACGT" 
 ```
 
 Any of those nucleotide codes are allowed in the sequence of a `DNAString`
@@ -187,8 +187,9 @@ at a given position in a nucleic acid sequence.
 DNAString("ATCGM")
 ```
 
-```{.error}
-Error in DNAString("ATCGM"): could not find function "DNAString"
+```{.output}
+5-letter DNAString object
+seq: ATCGM
 ```
 
 In particular, pattern matching methods implemented in the
@@ -207,18 +208,13 @@ any exact match.
 
 ```r
 dna1 <- DNAString("ATCGCTTTGA")
-```
-
-```{.error}
-Error in DNAString("ATCGCTTTGA"): could not find function "DNAString"
-```
-
-```r
 matchPattern("GM", dna1, fixed = TRUE)
 ```
 
-```{.error}
-Error in matchPattern("GM", dna1, fixed = TRUE): could not find function "matchPattern"
+```{.output}
+Views on a 10-letter DNAString subject
+subject: ATCGCTTTGA
+views: NONE
 ```
 
 Instead, to indicate that the pattern includes some ambiguity code, the argument
@@ -229,8 +225,13 @@ Instead, to indicate that the pattern includes some ambiguity code, the argument
 matchPattern("GM", dna1, fixed = FALSE)
 ```
 
-```{.error}
-Error in matchPattern("GM", dna1, fixed = FALSE): could not find function "matchPattern"
+```{.output}
+Views on a 10-letter DNAString subject
+subject: ATCGCTTTGA
+views:
+      start end width
+  [1]     4   5     2 [GC]
+  [2]     9  10     2 [GA]
 ```
 
 In this particular example, two views describe matches of the pattern in the
@@ -279,18 +280,18 @@ Since adapter sequences are nucleic acid sequences, we must use the function `re
 
 ```r
 truseq_adapters <- readDNAStringSet(filepath = "data/TruSeq3-PE-2.fa")
-```
-
-```{.error}
-Error in readDNAStringSet(filepath = "data/TruSeq3-PE-2.fa"): could not find function "readDNAStringSet"
-```
-
-```r
 truseq_adapters
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'truseq_adapters' not found
+```{.output}
+DNAStringSet object of length 6:
+    width seq                                               names               
+[1]    34 TACACTCTTTCCCTACACGACGCTCTTCCGATCT                PrefixPE/1
+[2]    34 GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT                PrefixPE/2
+[3]    34 TACACTCTTTCCCTACACGACGCTCTTCCGATCT                PE1
+[4]    34 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA                PE1_rc
+[5]    34 GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT                PE2
+[6]    34 AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC                PE2_rc
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -322,8 +323,14 @@ sequence.
 letterFrequency(truseq_adapters, letters = DNA_ALPHABET)
 ```
 
-```{.error}
-Error in letterFrequency(truseq_adapters, letters = DNA_ALPHABET): could not find function "letterFrequency"
+```{.output}
+      A  C  G  T M R W S Y K V H D B N - + .
+[1,]  6 14  3 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[2,]  5  8 10 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[3,]  6 14  3 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[4,] 11  3 14  6 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[5,]  5  8 10 11 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[6,] 11 10  8  5 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 ```
 
 The output is a matrix with one row for each sequence in the `DNAStringSet`
@@ -344,8 +351,9 @@ For instance, the `AA_ALPHABET` object describes the set of symbols in the full 
 AA_ALPHABET
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'AA_ALPHABET' not found
+```{.output}
+ [1] "A" "R" "N" "D" "C" "Q" "E" "G" "H" "I" "L" "K" "M" "F" "P" "S" "T" "W" "Y"
+[20] "V" "U" "O" "B" "J" "Z" "X" "*" "-" "+" "."
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -388,9 +396,13 @@ showMethods("translate")
 ```
 
 ```{.output}
-
-Function "translate":
- <not an S4 generic function>
+Function: translate (package Biostrings)
+x="DNAString"
+x="DNAStringSet"
+x="MaskedDNAString"
+x="MaskedRNAString"
+x="RNAString"
+x="RNAStringSet"
 ```
 
 In the output above, we see that that the generic function `translate()` includes methods capable of handling objects representing DNA and RNA sequences in the `DNAString` and `RNAString` classes, respectively;
@@ -406,18 +418,23 @@ and starting with the "ATG" start codon only.
 
 ```r
 actb_orf_nih <- readDNAStringSet("data/actb_orfs.fasta")
-```
-
-```{.error}
-Error in readDNAStringSet("data/actb_orfs.fasta"): could not find function "readDNAStringSet"
-```
-
-```r
 actb_orf_nih
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_orf_nih' not found
+```{.output}
+DNAStringSet object of length 13:
+     width seq                                              names               
+ [1]   222 ATGCCCACCATCACGCCCTGGTG...CGGGGCGGACGCGGTCTCGGCG gi|1519311456|ref...
+ [2]  1128 ATGGATGATGATATCGCCGCGCT...CGTCCACCGCAAATGCTTCTAG gi|1519311456|ref...
+ [3]   126 ATGATGATATCGCCGCGCTCGTC...CGCCCCAGGCACCAGGGCGTGA gi|1519311456|ref...
+ [4]    90 ATGTCGTCCCAGTTGGTGACGAT...CTGGGCCTCGTCGCCCACATAG gi|1519311456|ref...
+ [5]   225 ATGGGCACAGTGTGGGTGACCCC...AGCCACACGCAGCTCATTGTAG gi|1519311456|ref...
+ ...   ... ...
+ [9]   342 ATGAGATTGGCATGGCTTTATTT...ATGTAATGCAAAATTTTTTTAA gi|1519311456|ref...
+[10]   168 ATGGCTTTATTTGTTTTTTTTGT...TTGCACATTGTTGTTTTTTTAA gi|1519311456|ref...
+[11]   111 ATGACTATTAAAAAAACAACAAT...CCTTCACCGTTCCAGTTTTTAA gi|1519311456|ref...
+[12]   105 ATGCAAAATTTTTTTAATCTTCG...CCTTTTTTGTCCCCCAACTTGA gi|1519311456|ref...
+[13]   135 ATGATGAGCCTTCGTGCCCCCCC...TGACTTGAGACCAGTTGAATAA gi|1519311456|ref...
 ```
 
 Having imported the nucleotide sequences as a `DNAStringSet` object, we can
@@ -427,18 +444,23 @@ sequence that results from the translation process for each nucleotide sequence.
 
 ```r
 actb_aa <- translate(actb_orf_nih)
-```
-
-```{.error}
-Error in translate(actb_orf_nih): could not find function "translate"
-```
-
-```r
 actb_aa
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_aa' not found
+```{.output}
+AAStringSet object of length 13:
+     width seq                                              names               
+ [1]    74 MPTITPWCLGRPTMEGKTARGAS...VWTGGGSAKARLCARGADAVSA gi|1519311456|ref...
+ [2]   376 MDDDIAALVVDNGSGMCKAGFAG...MWISKQEYDESGPSIVHRKCF* gi|1519311456|ref...
+ [3]    42 MMISPRSSSTTAPACARPASRATMPPGPSSPPSWGAPGTRA*       gi|1519311456|ref...
+ [4]    30 MSSQLVTMPCSMGYFRVRMPLLLWASSPT*                   gi|1519311456|ref...
+ [5]    75 MGTVWVTPSPESITMPVVRPEAY...GFRGASVSSTGCSSGATRSSL* gi|1519311456|ref...
+ ...   ... ...
+ [9]   114 MRLAWLYLFFLFCFGFFFFFGLT...QVHTGEVIALLSCKLCNAKFF* gi|1519311456|ref...
+[10]    56 MALFVFFVLFWFFFFFWLDSGFK...ERASPKVHNVAEDFDCTLLFF* gi|1519311456|ref...
+[11]    37 MTIKKTTMCNQSPRPHCELWGMLAPTDCCHLHRSSF*            gi|1519311456|ref...
+[12]    35 MQNFFNLRLNTFLFCFILNDEPSCPPFPLFCPPT*              gi|1519311456|ref...
+[13]    45 MMSLRAPPSPFFVPQLEMYEGFWSPWEWVEAARAYLYTDLRPVE*    gi|1519311456|ref...
 ```
 
 In the example above, all amino acid sequences visible start with the typical

@@ -201,10 +201,6 @@ To get started, we load the package.
 library(GenomicRanges)
 ```
 
-```{.error}
-Error: package 'S4Vectors' required by 'GenomicRanges' could not be found
-```
-
 ### The IRanges class
 
 While the genomic space of many organisms is subdivided into multiple sequences
@@ -227,18 +223,15 @@ For instance, we create two integer ranges from their start position and width:
 
 ```r
 demo_iranges <- IRanges(start = c(10, 15), width = c(10, 5))
-```
-
-```{.error}
-Error in IRanges(start = c(10, 15), width = c(10, 5)): could not find function "IRanges"
-```
-
-```r
 demo_iranges
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_iranges' not found
+```{.output}
+IRanges object with 2 ranges and 0 metadata columns:
+          start       end     width
+      <integer> <integer> <integer>
+  [1]        10        19        10
+  [2]        15        19         5
 ```
 
 We note how the object displays not only the *start* and *width* information
@@ -261,8 +254,12 @@ of the `IRanges()` constructor function.
 IRanges(start = c(10, 15), end = c(19, 19))
 ```
 
-```{.error}
-Error in IRanges(start = c(10, 15), end = c(19, 19)): could not find function "IRanges"
+```{.output}
+IRanges object with 2 ranges and 0 metadata columns:
+          start       end     width
+      <integer> <integer> <integer>
+  [1]        10        19        10
+  [2]        15        19         5
 ```
 
 :::::::::::::::::::::::::
@@ -278,24 +275,24 @@ extracted as numeric vector using the functions `start()`, `end()` and
 start(demo_iranges)
 ```
 
-```{.error}
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'start': object 'demo_iranges' not found
+```{.output}
+[1] 10 15
 ```
 
 ```r
 end(demo_iranges)
 ```
 
-```{.error}
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'end': object 'demo_iranges' not found
+```{.output}
+[1] 19 19
 ```
 
 ```r
 width(demo_iranges)
 ```
 
-```{.error}
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'width': object 'demo_iranges' not found
+```{.output}
+[1] 10  5
 ```
 
 Objects of the `IRanges` family extend the `Vector` class, and are handled as
@@ -308,8 +305,11 @@ regular vector.
 demo_iranges[1]
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_iranges' not found
+```{.output}
+IRanges object with 1 range and 0 metadata columns:
+          start       end     width
+      <integer> <integer> <integer>
+  [1]        10        19        10
 ```
 
 ### Metadata on IRanges
@@ -333,18 +333,15 @@ demo_with_metadata <- IRanges(
   character_metadata = c("control", "target"),
   numeric_metadata = c(100, 200)
 )
-```
-
-```{.error}
-Error in IRanges(start = c(10, 15), end = c(19, 19), names = c("A", "B"), : could not find function "IRanges"
-```
-
-```r
 demo_with_metadata
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_with_metadata' not found
+```{.output}
+IRanges object with 2 ranges and 2 metadata columns:
+        start       end     width | character_metadata numeric_metadata
+    <integer> <integer> <integer> |        <character>        <numeric>
+  A        10        19        10 |            control              100
+  B        15        19         5 |             target              200
 ```
 
 The metadata columns can be extracted as a `DataFrame` using the function `mcols()` (short for "metadata columns").
@@ -354,8 +351,12 @@ The metadata columns can be extracted as a `DataFrame` using the function `mcols
 mcols(demo_with_metadata)
 ```
 
-```{.error}
-Error in mcols(demo_with_metadata): could not find function "mcols"
+```{.output}
+DataFrame with 2 rows and 2 columns
+  character_metadata numeric_metadata
+         <character>        <numeric>
+A            control              100
+B             target              200
 ```
 
 The character vector of names can be extracted using the function `names()`.
@@ -365,8 +366,8 @@ The character vector of names can be extracted using the function `names()`.
 names(demo_with_metadata)
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_with_metadata' not found
+```{.output}
+[1] "A" "B"
 ```
 
 Similarly to named vector of base data types, individual ranges can be extracted
@@ -377,8 +378,11 @@ by name.
 demo_with_metadata["A"]
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_with_metadata' not found
+```{.output}
+IRanges object with 1 range and 2 metadata columns:
+        start       end     width | character_metadata numeric_metadata
+    <integer> <integer> <integer> |        <character>        <numeric>
+  A        10        19        10 |            control              100
 ```
 
 ### Operations on IRanges
@@ -395,26 +399,19 @@ query_iranges <- IRanges(
   start = c(8, 16),
   end   = c(14, 18)
 )
-```
-
-```{.error}
-Error in IRanges(start = c(8, 16), end = c(14, 18)): could not find function "IRanges"
-```
-
-```r
 overlaps_iranges <- findOverlaps(query = query_iranges, subject = demo_iranges)
-```
-
-```{.error}
-Error in findOverlaps(query = query_iranges, subject = demo_iranges): could not find function "findOverlaps"
-```
-
-```r
 overlaps_iranges
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'overlaps_iranges' not found
+```{.output}
+Hits object with 3 hits and 0 metadata columns:
+      queryHits subjectHits
+      <integer>   <integer>
+  [1]         1           1
+  [2]         2           1
+  [3]         2           2
+  -------
+  queryLength: 2 / subjectLength: 2
 ```
 
 The results are returned in the form of a `Hits` object, which we have not
@@ -441,16 +438,16 @@ using their names, respectively:
 queryHits(overlaps_iranges)
 ```
 
-```{.error}
-Error in queryHits(overlaps_iranges): could not find function "queryHits"
+```{.output}
+[1] 1 2 2
 ```
 
 ```r
 subjectHits(overlaps_iranges)
 ```
 
-```{.error}
-Error in subjectHits(overlaps_iranges): could not find function "subjectHits"
+```{.output}
+[1] 1 1 2
 ```
 
 While displayed as a table, `Hits` objects are actually handled like vectors.
@@ -462,8 +459,13 @@ their index:
 overlaps_iranges[1]
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'overlaps_iranges' not found
+```{.output}
+Hits object with 1 hit and 0 metadata columns:
+      queryHits subjectHits
+      <integer>   <integer>
+  [1]         1           1
+  -------
+  queryLength: 2 / subjectLength: 2
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -492,18 +494,17 @@ demo_granges <- GRanges(
     start = c(10, 20),
     end   = c(25, 35))
 )
-```
-
-```{.error}
-Error in GRanges(seqnames = c("chr1", "chr2"), ranges = IRanges(start = c(10, : could not find function "GRanges"
-```
-
-```r
 demo_granges
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_granges' not found
+```{.output}
+GRanges object with 2 ranges and 0 metadata columns:
+      seqnames    ranges strand
+         <Rle> <IRanges>  <Rle>
+  [1]     chr1     10-25      *
+  [2]     chr2     20-35      *
+  -------
+  seqinfo: 2 sequences from an unspecified genome; no seqlengths
 ```
 
 In the console, the object displays the sequence names in the `seqnames`
@@ -523,18 +524,17 @@ demo_granges2 <- GRanges(
     end   = c(25, 35)),
   strand  = c("+", "-")
 )
-```
-
-```{.error}
-Error in GRanges(seqnames = c("chr1", "chr2"), ranges = IRanges(start = c(10, : could not find function "GRanges"
-```
-
-```r
 demo_granges2
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_granges2' not found
+```{.output}
+GRanges object with 2 ranges and 0 metadata columns:
+      seqnames    ranges strand
+         <Rle> <IRanges>  <Rle>
+  [1]     chr1     10-25      +
+  [2]     chr2     20-35      -
+  -------
+  seqinfo: 2 sequences from an unspecified genome; no seqlengths
 ```
 
 Finally, the examples above also demonstrate that `GRanges` objects include a
@@ -551,8 +551,11 @@ pieces of information were left unspecified, as `NA`.
 seqinfo(demo_granges2)
 ```
 
-```{.error}
-Error in seqinfo(demo_granges2): could not find function "seqinfo"
+```{.output}
+Seqinfo object with 2 sequences from an unspecified genome; no seqlengths:
+  seqnames seqlengths isCircular genome
+  chr1             NA         NA   <NA>
+  chr2             NA         NA   <NA>
 ```
 
 The example above reveals that information about sequences include not only
@@ -571,18 +574,17 @@ seqinfo(demo_granges2) <-  Seqinfo(
     isCircular = c(FALSE, TRUE),
     genome = c("homo_sapiens", "homo_sapiens")
 )
-```
-
-```{.error}
-Error in Seqinfo(seqnames = c("chr1", "chr2"), seqlengths = c(1234, 5678), : could not find function "Seqinfo"
-```
-
-```r
 demo_granges2
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_granges2' not found
+```{.output}
+GRanges object with 2 ranges and 0 metadata columns:
+      seqnames    ranges strand
+         <Rle> <IRanges>  <Rle>
+  [1]     chr1     10-25      +
+  [2]     chr2     20-35      -
+  -------
+  seqinfo: 2 sequences (1 circular) from homo_sapiens genome
 ```
 
 ### Metadata on GRanges
@@ -601,18 +603,17 @@ demo_granges3 <- GRanges(
   metadata1 = c("control", "target"),
   metadata2 = c(1, 2)
 )
-```
-
-```{.error}
-Error in GRanges(seqnames = c("chr1", "chr2"), ranges = IRanges(start = c(10, : could not find function "GRanges"
-```
-
-```r
 demo_granges3
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'demo_granges3' not found
+```{.output}
+GRanges object with 2 ranges and 2 metadata columns:
+      seqnames    ranges strand |   metadata1 metadata2
+         <Rle> <IRanges>  <Rle> | <character> <numeric>
+  [1]     chr1     10-25      * |     control         1
+  [2]     chr2     20-35      * |      target         2
+  -------
+  seqinfo: 2 sequences from an unspecified genome; no seqlengths
 ```
 
 ### Importing genomic ranges from files
@@ -647,30 +648,40 @@ format.
 
 ```r
 library(rtracklayer)
-```
-
-```{.output}
-Loading required package: GenomicRanges
-```
-
-```{.error}
-Error: package 'S4Vectors' required by 'GenomicRanges' could not be found
-```
-
-```r
 actb_gtf_data <- rtracklayer::import("data/actb.gtf")
-```
-
-```{.error}
-Error in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]): there is no package called 'S4Vectors'
-```
-
-```r
 actb_gtf_data
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_gtf_data' not found
+```{.output}
+GRanges object with 267 ranges and 7 metadata columns:
+        seqnames          ranges strand |      source           type     score
+           <Rle>       <IRanges>  <Rle> |    <factor>       <factor> <numeric>
+    [1]        7 5526409-5563902      - | rtracklayer     gene              NA
+    [2]        7 5526409-5530601      - | rtracklayer     transcript        NA
+    [3]        7 5530542-5530601      - | rtracklayer     exon              NA
+    [4]        7 5529535-5529684      - | rtracklayer     exon              NA
+    [5]        7 5529535-5529657      - | rtracklayer     CDS               NA
+    ...      ...             ...    ... .         ...            ...       ...
+  [263]        7 5540676-5540771      - | rtracklayer five_prime_utr        NA
+  [264]        7 5529658-5529663      - | rtracklayer five_prime_utr        NA
+  [265]        7 5561852-5562716      - | rtracklayer transcript            NA
+  [266]        7 5562390-5562716      - | rtracklayer exon                  NA
+  [267]        7 5561852-5561949      - | rtracklayer exon                  NA
+            phase         gene_id   gene_name   transcript_id
+        <integer>     <character> <character>     <character>
+    [1]      <NA> ENSG00000075624        ACTB            <NA>
+    [2]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [3]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [4]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [5]      <NA> ENSG00000075624        ACTB ENST00000674681
+    ...       ...             ...         ...             ...
+  [263]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [264]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [265]      <NA> ENSG00000075624        ACTB ENST00000646584
+  [266]      <NA> ENSG00000075624        ACTB ENST00000646584
+  [267]      <NA> ENSG00000075624        ACTB ENST00000646584
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -719,8 +730,24 @@ at position `5527147`.
 subset(actb_gtf_data, type == "transcript" & start == 5527147)
 ```
 
-```{.error}
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'subset': object 'actb_gtf_data' not found
+```{.output}
+GRanges object with 5 ranges and 7 metadata columns:
+      seqnames          ranges strand |      source       type     score
+         <Rle>       <IRanges>  <Rle> |    <factor>   <factor> <numeric>
+  [1]        7 5527147-5529949      - | rtracklayer transcript        NA
+  [2]        7 5527147-5530581      - | rtracklayer transcript        NA
+  [3]        7 5527147-5530604      - | rtracklayer transcript        NA
+  [4]        7 5527147-5530604      - | rtracklayer transcript        NA
+  [5]        7 5527147-5530604      - | rtracklayer transcript        NA
+          phase         gene_id   gene_name   transcript_id
+      <integer>     <character> <character>     <character>
+  [1]      <NA> ENSG00000075624        ACTB ENST00000642480
+  [2]      <NA> ENSG00000075624        ACTB ENST00000676397
+  [3]      <NA> ENSG00000075624        ACTB ENST00000676319
+  [4]      <NA> ENSG00000075624        ACTB ENST00000676189
+  [5]      <NA> ENSG00000075624        ACTB ENST00000473257
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
 ```
 
 #### Split
@@ -738,26 +765,69 @@ the result as a `GRangesList` object.
 
 ```r
 actb_exons <- subset(actb_gtf_data, type == "exon")
-```
-
-```{.error}
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'subset': object 'actb_gtf_data' not found
-```
-
-```r
 actb_exons_by_transcript <- split(actb_exons, actb_exons$transcript_id)
-```
-
-```{.error}
-Error in split(actb_exons, actb_exons$transcript_id): object 'actb_exons' not found
-```
-
-```r
 actb_exons_by_transcript
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_exons_by_transcript' not found
+```{.output}
+GRangesList object of length 23:
+$ENST00000414620
+GRanges object with 4 ranges and 7 metadata columns:
+      seqnames          ranges strand |      source     type     score
+         <Rle>       <IRanges>  <Rle> |    <factor> <factor> <numeric>
+  [1]        7 5562574-5562790      - | rtracklayer     exon        NA
+  [2]        7 5540676-5540771      - | rtracklayer     exon        NA
+  [3]        7 5529535-5529663      - | rtracklayer     exon        NA
+  [4]        7 5529282-5529400      - | rtracklayer     exon        NA
+          phase         gene_id   gene_name   transcript_id
+      <integer>     <character> <character>     <character>
+  [1]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [2]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [3]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [4]      <NA> ENSG00000075624        ACTB ENST00000414620
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+
+$ENST00000417101
+GRanges object with 3 ranges and 7 metadata columns:
+      seqnames          ranges strand |      source     type     score
+         <Rle>       <IRanges>  <Rle> |    <factor> <factor> <numeric>
+  [1]        7 5529806-5529982      - | rtracklayer     exon        NA
+  [2]        7 5529535-5529663      - | rtracklayer     exon        NA
+  [3]        7 5529235-5529400      - | rtracklayer     exon        NA
+          phase         gene_id   gene_name   transcript_id
+      <integer>     <character> <character>     <character>
+  [1]      <NA> ENSG00000075624        ACTB ENST00000417101
+  [2]      <NA> ENSG00000075624        ACTB ENST00000417101
+  [3]      <NA> ENSG00000075624        ACTB ENST00000417101
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+
+$ENST00000425660
+GRanges object with 7 ranges and 7 metadata columns:
+      seqnames          ranges strand |      source     type     score
+         <Rle>       <IRanges>  <Rle> |    <factor> <factor> <numeric>
+  [1]        7 5530524-5530601      - | rtracklayer     exon        NA
+  [2]        7 5529535-5529663      - | rtracklayer     exon        NA
+  [3]        7 5529161-5529400      - | rtracklayer     exon        NA
+  [4]        7 5529019-5529059      - | rtracklayer     exon        NA
+  [5]        7 5528281-5528719      - | rtracklayer     exon        NA
+  [6]        7 5528004-5528185      - | rtracklayer     exon        NA
+  [7]        7 5527156-5527891      - | rtracklayer     exon        NA
+          phase         gene_id   gene_name   transcript_id
+      <integer>     <character> <character>     <character>
+  [1]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [2]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [3]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [4]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [5]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [6]      <NA> ENSG00000075624        ACTB ENST00000425660
+  [7]      <NA> ENSG00000075624        ACTB ENST00000425660
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+
+...
+<20 more elements>
 ```
 
 When printing the object above in the console, the first line confirms the
@@ -780,8 +850,17 @@ as the length of each `GRanges` object within the `GRangesList`:
 lengths(actb_exons_by_transcript)
 ```
 
-```{.error}
-Error in lengths(actb_exons_by_transcript): object 'actb_exons_by_transcript' not found
+```{.output}
+ENST00000414620 ENST00000417101 ENST00000425660 ENST00000432588 ENST00000443528 
+              4               3               7               5               3 
+ENST00000462494 ENST00000464611 ENST00000473257 ENST00000477812 ENST00000480301 
+              5               3               5               5               2 
+ENST00000484841 ENST00000493945 ENST00000642480 ENST00000645025 ENST00000645576 
+              5               6               5               4               5 
+ENST00000646584 ENST00000646664 ENST00000647275 ENST00000674681 ENST00000675515 
+              2               6               3               6               6 
+ENST00000676189 ENST00000676319 ENST00000676397 
+              6               3               6 
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -804,8 +883,8 @@ What does `length(actb_exons_by_transcript)` return, and why?
 length(actb_exons_by_transcript)
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_exons_by_transcript' not found
+```{.output}
+[1] 23
 ```
 
 This code returns the single integer value `23`, which is the number
@@ -833,26 +912,40 @@ region_of_interest <- GRanges(
     seqnames = "7",
     ranges = IRanges(start = 5525830, end = 5531239)
 )
-```
-
-```{.error}
-Error in GRanges(seqnames = "7", ranges = IRanges(start = 5525830, end = 5531239)): could not find function "GRanges"
-```
-
-```r
 actb_in_region <- subsetByOverlaps(x = actb_gtf_data, ranges = region_of_interest)
-```
-
-```{.error}
-Error in subsetByOverlaps(x = actb_gtf_data, ranges = region_of_interest): could not find function "subsetByOverlaps"
-```
-
-```r
 actb_in_region
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_in_region' not found
+```{.output}
+GRanges object with 256 ranges and 7 metadata columns:
+        seqnames          ranges strand |      source           type     score
+           <Rle>       <IRanges>  <Rle> |    <factor>       <factor> <numeric>
+    [1]        7 5526409-5563902      - | rtracklayer     gene              NA
+    [2]        7 5526409-5530601      - | rtracklayer     transcript        NA
+    [3]        7 5530542-5530601      - | rtracklayer     exon              NA
+    [4]        7 5529535-5529684      - | rtracklayer     exon              NA
+    [5]        7 5529535-5529657      - | rtracklayer     CDS               NA
+    ...      ...             ...    ... .         ...            ...       ...
+  [252]        7 5529535-5529657      - | rtracklayer CDS                   NA
+  [253]        7 5529655-5529657      - | rtracklayer start_codon           NA
+  [254]        7 5529282-5529400      - | rtracklayer exon                  NA
+  [255]        7 5529282-5529400      - | rtracklayer CDS                   NA
+  [256]        7 5529658-5529663      - | rtracklayer five_prime_utr        NA
+            phase         gene_id   gene_name   transcript_id
+        <integer>     <character> <character>     <character>
+    [1]      <NA> ENSG00000075624        ACTB            <NA>
+    [2]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [3]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [4]      <NA> ENSG00000075624        ACTB ENST00000674681
+    [5]      <NA> ENSG00000075624        ACTB ENST00000674681
+    ...       ...             ...         ...             ...
+  [252]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [253]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [254]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [255]      <NA> ENSG00000075624        ACTB ENST00000414620
+  [256]      <NA> ENSG00000075624        ACTB ENST00000414620
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
 ```
 
 Like the `subset()` method, the `subsetByOverlaps()` method returns a new
@@ -868,8 +961,8 @@ to check whether the new `GRanges` object is any smaller than the original
 length(actb_in_region) - length(actb_gtf_data)
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'actb_in_region' not found
+```{.output}
+[1] -11
 ```
 
 In the example above, we learn that the new `GRanges` object has 11 records less
