@@ -28,7 +28,13 @@
     <loc>https://preview.carpentries.org/bioc-project/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/bioc-project/aio.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/bioc-project/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/bioc-project/images.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/bioc-project/index.html</loc>
@@ -61,16 +67,34 @@
     <loc>https://preview.carpentries.org/bioc-project/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/bioc-project/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/bioc-project/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/bioc-project/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/bioc-project/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/bioc-project/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/bioc-project/key-points.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/bioc-project/profiles.html</loc>
