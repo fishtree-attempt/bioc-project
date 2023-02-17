@@ -1,8 +1,12 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+permalink: index.html
+site: sandpaper::sandpaper_site
 ---
+
+> **ATTENTION** This is an experimental test of [The Carpentries Workbench](https://carpentries.github.io/workbench) lesson infrastructure.
+> It was automatically converted from the source lesson via [the lesson transition script](https://github.com/carpentries/lesson-transition/).
+> 
+> If anything seems off, please contact Zhian Kamvar [zkamvar@carpentries.org](mailto:zkamvar@carpentries.org)
 
 This lesson provides an introduction to the Bioconductor project.
 
@@ -31,16 +35,28 @@ In this lesson, you will learn:
 
 {% comment %} This is a comment in Liquid {% endcomment %}
 
-> ## Prerequisites
->
-> - Learning objectives of the [Introduction to data analysis with R and Bioconductor][lesson-intro-r-bioconductor] workshop.
-{: .prereq}
+::::::::::::::::::::::::::::::::::::::::::  prereq
 
-> ## For Instructors
-> If you are teaching this lesson in a workshop, please see the 
-> [Instructor notes](guide/).
-{: .prereq}
+## Prerequisites
+
+- Learning objectives of the [Introduction to data analysis with R and Bioconductor][lesson-intro-r-bioconductor] workshop.
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::  prereq
+
+## For Instructors
+
+If you are teaching this lesson in a workshop, please see the
+[Instructor notes](guide/).
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 [lesson-intro-r-bioconductor]: https://carpentries-incubator.github.io/bioc-intro/index.html
 
-{% include links.md %}
+
+
