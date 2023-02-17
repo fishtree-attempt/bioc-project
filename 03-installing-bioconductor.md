@@ -279,7 +279,7 @@ length(BiocManager::available())
 ```
 
 ```{.output}
-[1] 22722
+[1] 22743
 ```
 
 Specifically, the current Bioconductor and CRAN repositories can be displayed as follows.
@@ -378,11 +378,6 @@ As a result, it will not be possible to attach the package to a session or brows
 
 ```r
 remove.packages("S4Vectors")
-```
-
-```{.output}
-* Removing package(s) from project library ...
-Removing package 'S4Vectors' ... Done!
 ```
 
 [bioc-release-dates]: https://bioconductor.org/about/release-announcements/
