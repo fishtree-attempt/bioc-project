@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://preview.carpentries.org/bioc-project01-setup.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/01-setup.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project02-introduction-to-bioconductor.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/02-introduction-to-bioconductor.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project03-installing-bioconductor.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/03-installing-bioconductor.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project04-getting-help.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/04-getting-help.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project05-s4.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/05-s4.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project06-biological-sequences.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/06-biological-sequences.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project07-genomic-ranges.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/07-genomic-ranges.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-project404.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/404.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectCODE_OF_CONDUCT.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectLICENSE.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectaio.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/aio.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectdiscuss.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/discuss.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectimages.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/images.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectindex.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/index.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/01-setup.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/01-setup.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/02-introduction-to-bioconductor.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/02-introduction-to-bioconductor.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/03-installing-bioconductor.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/03-installing-bioconductor.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/04-getting-help.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/04-getting-help.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/05-s4.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/05-s4.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/06-biological-sequences.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/06-biological-sequences.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/07-genomic-ranges.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/07-genomic-ranges.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/404.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/LICENSE.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/aio.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/discuss.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/discuss.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/images.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/index.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/instructor-notes.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/key-points.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/profiles.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor/reference.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor/reference.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectinstructor-notes.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectkey-points.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/key-points.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectprofiles.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/profiles.html</loc>
   </url>
   <url>
-    <loc>https://preview.carpentries.org/bioc-projectreference.html</loc>
+    <loc>https://preview.carpentries.org/bioc-project/reference.html</loc>
   </url>
 </urlset>
